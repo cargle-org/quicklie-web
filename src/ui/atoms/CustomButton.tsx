@@ -39,7 +39,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         padding: padding || "10px 16px",
         margin: margin || 0,
         color: color || colors.white,
-        backgroundColor: bgColor || colors.green,
+        backgroundColor: bgColor || colors.redDark,
         borderRadius: borderRadius || "10px",
       }}
       type={type || "button"}

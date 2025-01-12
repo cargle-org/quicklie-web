@@ -11,7 +11,7 @@ const Products = () => {
         <div className='relative flex-shrink-0 w-72 snap-start'>
           <Image src='/images/Catalog1.png' alt='catalog' width={280} height={800} className='w-full' />
           <div className='text-center text-white absolute bottom-[7rem] left-1/2 transform -translate-x-1/2'>
-            <p className='mb-3 font-medium text-[24px]'>Best Sellers</p>
+            <p className='mb-3 font-medium text-[24px]'>Champagnes</p>
             <CustomButton padding='6px 40px' className='font-semibold hover:opacity-80'>
               View
             </CustomButton>
@@ -41,9 +41,9 @@ const Products = () => {
         </div>
 
         {/* View All */}
-        <div className='relative flex-shrink-0 w-72 snap-start bg-[#009245] opacity-60'>
+        <div className='relative flex-shrink-0 w-72 snap-start bg-black'>
           <div className='text-center text-white absolute bottom-1/2 transform -translate-y-1/2 left-1/2 -translate-x-1/2'>
-            <CustomButton padding='6px 40px' className='font-semibold hover:opacity-60 whitespace-nowrap'>
+            <CustomButton bgColor="transparent" padding='6px 40px' className='font-semibold hover:opacity-60 whitespace-nowrap'>
               View All
             </CustomButton>
           </div>

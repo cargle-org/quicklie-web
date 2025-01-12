@@ -10,12 +10,16 @@ const Contact = () => {
     <div className='max-w-[1500px] mx-auto px-14 xs:px-6 my-20'>
       <ContactCard>
         <div className='flex gap-10 justify-between items-center'>
-          <div className='w-1/2 sm:hidden'>
+          <div className='w-1/2 sm:hidden relative'>
             <Image src='/images/ContactBackground.png' alt='background' width={100} height={100} className='w-full' />
+            <div className='absolute w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white mx-8 '>
+              <h3 className='text-red text-[45px] font-extrabold '>Contact Us</h3>
+              <p className="w-[80%]">Send us a message now, and we will respond as soon as possible</p>
+            </div>
           </div>
           <div className='w-1/2 sm:w-full'>
             <h2 className='font-semibold text-[25px]'>Send us a message</h2>
-            <p className='text-xs font-medium text-textDark'>
+            <p className='text-xs font-medium text-textDark md:hidden'>
               Send us a message now, and we will respond as soon as possible
             </p>
             <form className='mt-6'>
