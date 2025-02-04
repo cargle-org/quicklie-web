@@ -17,12 +17,19 @@ function FAQsub(props: FaqGroupProps) {
 
   return (
     <FAQGroup>
-      <div className='faqs'>
+      <div className='faqs p-4'>
         <p className='question'>{props.question}</p>
-        <button onClick={() => handleClick()}>{openFaq ? <ArrowUp /> : <ArrowDown />}</button>
+        <button 
+          onClick={handleClick}
+          className='focus:outline-none'
+        >
+          {openFaq ? <ArrowUp /> : <ArrowDown />}
+        </button>
       </div>
-      {openFaq && <p className='response'>{props.response}</p>}
-      <hr />
+      {openFaq && (
+        <p className='response !p-3'>{props.response}</p>
+      )}
+      <hr className='border-[#dddddd]' />
     </FAQGroup>
   );
 }
