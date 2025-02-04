@@ -1,37 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import FAQsub from "./FAQsub";
+import { faqData } from "@/constants/faqData"; 
+import Link from "next/link";
 
 const FAQs = () => {
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
+
+  const toggleCategory = (category: string) => {
+    setOpenCategory(openCategory === category ? null : category);
+  };
+
   return (
-    <FAQSection className={"max-w-[1500px] mx-auto px-14 xs:px-6 "}>
-      <h2 className='faq-title font-semibold'>Have a question, check FAQs</h2>
-      <FAQCard>
-        <FAQsub
-          question='What is Quicklie Distribution?'
-          response='The vetting process normally takes place within 24hours of make the vetting request, but might as well be more than that due to one reason or the other e.g inablity to locate the vehicle to be vet ontime whiich may be due to misinformation from the client.'
-        />
-        <FAQsub
-          question='How do i create account as an agent?'
-          response='The vetting process normally takes place within 24hours of make the vetting request, but might as well be more than that due to one reason or the other e.g inablity to locate the vehicle to be vet ontime whiich may be due to misinformation from the client.'
-        />
-        <FAQsub
-          question='How do i Know if my money is secure?'
-          response='The vetting process normally takes place within 24hours of make the vetting request, but might as well be more than that due to one reason or the other e.g inablity to locate the vehicle to be vet ontime whiich may be due to misinformation from the client.'
-        />
-        <FAQsub
-          question='How long does it take to vet a vehicle?'
-          response='The vetting process normally takes place within 24hours of make the vetting request, but might as well be more than that due to one reason or the other e.g inablity to locate the vehicle to be vet ontime whiich may be due to misinformation from the client.'
-        />
-        <FAQsub
-          question='How much does vetting process cost?'
-          response='The vetting process normally takes place within 24hours of make the vetting request, but might as well be more than that due to one reason or the other e.g inablity to locate the vehicle to be vet ontime whiich may be due to misinformation from the client.'
-        />
-        <FAQsub
-          question='How do i know if my request have been answered?'
-          response='The vetting process normally takes place within 24hours of make the vetting request, but might as well be more than that due to one reason or the other e.g inablity to locate the vehicle to be vet ontime whiich may be due to misinformation from the client.'
-        />
-      </FAQCard>
+    <FAQSection className={"max-w-[1500px] mx-auto px-14 xs:px-6"}>
+      <h2 className='faq-title font-bold text-black'>Frequently Asked Questions</h2>
+      <div className="faq-categories">
+        {faqData.map((category) => (
+          <FAQCategory key={category.category}>
+            <div 
+              className="category-header"
+              onClick={() => toggleCategory(category.category)}
+            >
+              <h3 className="text-xl font-semibold">{category.category}</h3>
+              <svg
+                className={`w-6 h-6 transition-transform ${
+                  openCategory === category.category ? "rotate-180" : ""
+                }`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+            <div
+              className="category-content"
+              style={{
+                maxHeight: openCategory === category.category ? "1000px" : "0",
+              }}
+            >
+              {category.questions.map((faq, index) => (
+                <FAQsub
+                  key={index}
+                  question={faq.question}
+                  response={faq.answer}
+                />
+              ))}
+            </div>
+          </FAQCategory>
+        ))}
+      </div>
+      
+      <div className="text-center mt-12 mb-8">
+        <p className="text-xl text-textDarker font-medium">Still have questions?</p>
+        <Link 
+          href="/contact" 
+          className="inline-block mt-4 px-6 py-3 bg-[#110606] text-white rounded-md hover:opacity-90 transition-colors font-semibold"
+        >
+          Contact Us
+        </Link>
+      </div>
     </FAQSection>
   );
 };
@@ -40,22 +73,31 @@ export default FAQs;
 
 export const FAQSection = styled.div`
   background-color: #F7F7F7;
-  padding: 7rem 4rem;
-  &.open {
-    opacity: 0.3;
-  }
+  padding: 5rem 4rem;
+  
   .faq-title {
     text-align: center;
-    font-size: 2rem;
-    margin: 3rem auto;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
   }
+  
+  .faq-categories {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
   @media (max-width: 768px) {
+    padding: 4rem 2rem;
+    
     .faq-title {
       font-size: 2rem;
+      margin-bottom: 2rem;
     }
   }
+  
   @media (max-width: 520px) {
-    padding: 7rem 2rem;
+    padding: 3rem 1.5rem;
+    
     .faq-title {
       font-size: 1.5rem;
     }
@@ -138,5 +180,28 @@ export const FAQGroup = styled.div`
     .response {
       font-size: 0.7rem;
     }
+  }
+`;
+
+export const FAQCategory = styled.div`
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px #00000015;
+  margin-bottom: 1rem;
+  
+  .category-header {
+    background-color: #110606;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .category-content {
+    overflow: hidden;
+    transition: all 0.3s ease;
   }
 `;
