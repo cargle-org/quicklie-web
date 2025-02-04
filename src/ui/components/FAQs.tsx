@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import FAQsub from "./FAQsub";
-import { faqData } from "@/constants/faqData"; 
+import { faqData } from "../../constants/faqData"; 
 import Link from "next/link";
 
 const FAQs = () => {
   const [openCategory, setOpenCategory] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data fetching
+    const fetchData = async () => {
+      // Simulate a delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
 
   const toggleCategory = (category: string) => {
     setOpenCategory(openCategory === category ? null : category);
   };
+
+  if (loading) {
+    return <div>Loading...</div>; // Loading state
+  }
 
   return (
     <FAQSection className={"max-w-[1500px] mx-auto px-14 xs:px-6"}>
