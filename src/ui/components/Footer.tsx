@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CustomButton from "../atoms/CustomButton";
+import Link from "next/link";
 
 const Footer = () => {
   const [values, setValues] = useState({ email: "", message: "" });
@@ -25,11 +26,17 @@ const Footer = () => {
             <h2 className='font-bold'>QUICK LINKS</h2>
             <div className='w-7 h-1 bg-red'></div>
             <ul className='mt-6 text-sm'>
-              <li> Home </li>
-              <li> About </li>
+              <Link href={'/'}><li> Home </li></Link>
+              <Link href={'/about'}><li> About </li></Link>
               <li> Our Products </li>
-              <li> Contact </li>
+              <Link href={'/contact'}><li> Contact </li></Link>
               <li> Shop Now </li>
+            </ul>
+            <ul className='mt-6 text-sm'>
+              
+              <Link href={'/refund-policy'}><li> Refund Policy </li></Link>
+              <Link href={'/privacy-policy'}><li> Privacy Policy </li></Link>
+              <Link href={'/terms-and-conditions'}><li> Terms and Conditions </li></Link>
             </ul>
           </div>
           <div className='w-1/3 sm:w-full'>
