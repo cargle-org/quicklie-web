@@ -91,7 +91,7 @@ const Terms: React.FC = () => {
               <li>Send unsolicited advertising, spam, or other solicitations.</li>
               <li>Disrupt normal communication flow or interfere with other users’ experiences.</li>
               <li>Use tools or routines to bypass robot exclusion headers or otherwise interfere with servers/networks.</li>
-              <li>Collect or store other users' personal data in connection with prohibited activities.</li>
+              <li>Collect or store other users&#39 personal data in connection with prohibited activities.</li>
             </ul>
 
             <p className="mt-2">
@@ -168,7 +168,7 @@ const Terms: React.FC = () => {
             <h2 className="text-2xl font-semibold text-brand-dark">10. Limitation of Liability</h2>
 
             <p>
-              The Platform is provided "as is" and "as available". We do not guarantee uninterrupted or error-free access. We are not liable for any direct, indirect, incidental or consequential loss arising from use of the Platform, including but not limited to:
+              The Platform is provided &quot as is &quot and &quot as available &quot. We do not guarantee uninterrupted or error-free access. We are not liable for any direct, indirect, incidental or consequential loss arising from use of the Platform, including but not limited to:
             </p>
 
             <ul className="list-disc ml-6 space-y-2">
@@ -189,7 +189,7 @@ const Terms: React.FC = () => {
             <ul className="list-disc ml-6 space-y-2">
               <li>All trademarks, copyrights, logos and brand features are the property of QuickLie Distributions.</li>
               <li>You may not display or use our marks without prior written consent.</li>
-              <li>We respect others' IP and may disable/terminate accounts that infringe rights.</li>
+              <li>We respect others&#39 IP and may disable/terminate accounts that infringe rights.</li>
             </ul>
 
             <p className="mt-2">If you believe your IP has been infringed, provide us with:</p>

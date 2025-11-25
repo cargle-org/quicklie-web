@@ -15,7 +15,7 @@ const Refund = () => {
 
           {/* INTRODUCTION */}
           <section className="bg-white p-6 rounded-lg shadow-md space-y-4">
-            <p>Thanks for shopping with us! If you are not completely satisfied with your purchase, we're more than happy to help.</p>
+            <p>Thanks for shopping with us! If you are not completely satisfied with your purchase, we&#39re more than happy to help.</p>
           </section>
 
           {/* RETURN/REFUND REQUESTS */}
@@ -52,7 +52,7 @@ const Refund = () => {
           <section className="bg-white p-6 rounded-lg shadow-md space-y-4">
             <h2 className="text-2xl font-semibold text-brand-dark">How to Return</h2>
             <p>
-              To return your goods, please email us at: <span className="font-semibold">quickliedistributions.com</span> with your Order Number and Reason for Return. We'll do our best to help you in any way.
+              To return your goods, please email us at: <span className="font-semibold">quickliedistributions.com</span> with your Order Number and Reason for Return. We&#39ll do our best to help you in any way.
             </p>
           </section>
 
